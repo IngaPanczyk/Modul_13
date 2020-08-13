@@ -1,4 +1,4 @@
-package challenges;
+package challenges.stream;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -33,5 +33,4 @@ class MovieStore {
         return booksTitlesWithTranslations;
 
     }
-
 }
