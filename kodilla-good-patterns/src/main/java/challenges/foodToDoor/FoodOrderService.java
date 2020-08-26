@@ -7,14 +7,14 @@ public class FoodOrderService {
     public FoodOrderService( final OrderService orderService) {
         this.orderService = orderService;
     }
-    public OrderDto process(OrderRequest orderRequest){
-        boolean isOrdered = orderService.process(orderRequest.getClient(), orderRequest.getQuantity(), orderRequest.getItem(), orderRequest.getQuantityOrdered());
+    public OrderDto process( final ShopRequest shopRequest){
+        boolean isOrdered = orderService.process(orderService.getClient(),orderService.getQuantity(), orderService.getItem(), orderService.getQualityOrdered() /*shopRequest.getClient(), shopRequest.getQuantity(), shopRequest.getItem(), shopRequest.getQuantityOrdered()*/);
         if(isOrdered){
-            System.out.println(orderRequest.getClient() + "thanks for shopping");
-            return new OrderDto(orderRequest.getClient(), true);
+            System.out.println("thanks for shopping");
+            return new OrderDto(orderService.getClient(), true);
         }else {
             System.out.println("The order has not been made, please try again later");
-            return new OrderDto(orderRequest.getClient(), false);
+            return new OrderDto(orderService.getClient(), false);
         }
     }
 }
