@@ -8,12 +8,4 @@ public class OrderDto {
         this.client = client;
         this.isOrdered = isOrdered;
     }
-
-    public String getClient() {
-        return client;
-    }
-
-    public boolean isOrdered() {
-        return isOrdered;
-    }
 }

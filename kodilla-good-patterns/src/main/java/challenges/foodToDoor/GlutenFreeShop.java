@@ -1,6 +1,6 @@
 package challenges.foodToDoor;
 
-public class GlutenFreeShop {
+public class GlutenFreeShop implements OrderService {
     String client;
     double quantity;
     String item;
@@ -25,7 +25,7 @@ public class GlutenFreeShop {
         return item;
     }
 
-    public double getQuantityOrdered() {
+    public double getQualityOrdered() {
         return quantityOrdered;
     }
 

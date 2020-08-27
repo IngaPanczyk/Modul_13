@@ -8,7 +8,7 @@ public class FoodOrderService {
         this.orderService = orderService;
     }
     public OrderDto process( final ShopRequest shopRequest){
-        boolean isOrdered = orderService.process(orderService.getClient(),orderService.getQuantity(), orderService.getItem(), orderService.getQualityOrdered() /*shopRequest.getClient(), shopRequest.getQuantity(), shopRequest.getItem(), shopRequest.getQuantityOrdered()*/);
+        boolean isOrdered = orderService.process(orderService.getClient(),orderService.getQuantity(), orderService.getItem(), orderService.getQualityOrdered());
         if(isOrdered){
             System.out.println("thanks for shopping");
             return new OrderDto(orderService.getClient(), true);
