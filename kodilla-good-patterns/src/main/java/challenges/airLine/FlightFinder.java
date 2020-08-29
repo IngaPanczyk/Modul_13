@@ -1,32 +1,36 @@
 package challenges.airLine;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class FlightFinder {
 
-    public void findFlightTo( FlightsMap listOfFlights,  City cityFrom) {
+    public void findFlightTo(FlightsMapFillIn listOfFlights, String cityFrom) {
+        System.out.print("From " + cityFrom + " you can flight to: ");
         listOfFlights.fillIn().entrySet().stream()
                 .filter(x -> cityFrom.equals(x.getKey()))
-                .map(x->x.getValue())
+                .map(x -> x.getValue())
                 .forEach(System.out::println);
     }
 
-    public void findIndirectFlight( FlightsMap listOfFlights,  City cityTo) {
+    public void findFlightFrom(FlightsMapFillIn listOfFlights, String cityTo) {
+        System.out.println("To " + cityTo + " you can flight from: ");
         listOfFlights.fillIn().entrySet().stream()
                 .filter(x -> (x.getValue().contains(cityTo)))
-                .map(x->x.getKey())
+                .map(x -> x.getKey())
+                .map(x ->x.toString())
                 .forEach(System.out::println);
+
 
     }
 
-    public void findFlightFrom( FlightsMap listOfFlights,  City cityTo,  City cityFrom) {
+    public void findIndirectFlight(FlightsMapFillIn listOfFlights, String cityTo, String cityFrom) {
+        System.out.println("From " + cityFrom + " you can flight to: " + cityTo + " with inter-probing in ");
         listOfFlights.fillIn().entrySet().stream()
                 .filter(x -> (x.getValue().contains(cityTo)))
-                .map(x->x.getKey())
-                .filter(x -> (x.contains(cityFrom.toString())))
+                .map(x -> x.getKey())
+                .filter(x -> (x.contains(cityFrom)))
                 .forEach(System.out::println);
     }
 }

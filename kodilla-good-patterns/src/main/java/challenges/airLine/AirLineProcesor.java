@@ -1,27 +1,25 @@
 package challenges.airLine;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class AirLineProcesor {
     public static void main(String[] args) {
-        FlightsMap flightsMap = new FlightsMap();
-       City city = new City("Kraków");
-       City cityTo = new City("Zadar");
+        //zrobić z tego OTD???
+        City cityFrom = new City("Kraków");
+        City cityTo = new City("Zadar");
+        //Zrobić z tego jedną metode
         FlightFinder flightFinder = new FlightFinder();
-        flightsMap.fillIn();
-        flightFinder.findFlightTo(flightsMap, city);
-        //flightFinder.findIndirectFlight(flightsMap,city);
-        //flightFinder.findFlightFrom(flightsMap,cityTo,city);
+        //flightFinder.findFlightTo(new FlightsMapFillIn(new HashMap()), cityFrom.getCity());
+        //flightFinder.findFlightFrom(new FlightsMapFillIn(new HashMap()), cityTo.getCity());
+        //flightFinder.findIndirectFlight(new FlightsMapFillIn(new HashMap()), cityTo.getCity(), cityFrom.getCity());
 
 
         List<String> fromKrakow = new LinkedList<>();
         fromKrakow.add("Warszawa");
         fromKrakow.add("Mediolan");
         fromKrakow.add("Rzym");
+        fromKrakow.add("Wrocław");
         List<String> fromWroclaw = new LinkedList<>();
         fromWroclaw.add("Warszawa");
         fromWroclaw.add("Mediolan");
@@ -36,26 +34,34 @@ public class AirLineProcesor {
         fromRzeszów.add("Zadar");
 
 
-        Map<String, List> listOfFlights = new HashMap<>();
-        listOfFlights.put("Kraków", fromKrakow);
-        listOfFlights.put("Wroclaw", fromWroclaw);
-        listOfFlights.put("Rzeszów", fromRzeszów);
+        Map<String, List> listOfFlights1 = new HashMap<>();
+        listOfFlights1.put("Kraków", fromKrakow);
+        listOfFlights1.put("Wroclaw", fromWroclaw);
+        listOfFlights1.put("Rzeszów", fromRzeszów);
 //Podaje skąd lata
-        listOfFlights.entrySet().stream()
+        /*listOfFlights1.entrySet().stream()
                 .filter(x -> "Kraków".equals(x.getKey()))
-                .map(x->x.getValue())
-                .forEach(System.out::println);
+                .map(x -> x.getValue())
+                .forEach(System.out::println);*/
+
 //Wyszukuje dokąd lata
-        listOfFlights.entrySet().stream()
+        /*listOfFlights1.entrySet().stream()
                 .filter(x -> (x.getValue().contains("Kraków")))
-                .map(x->x.getKey())
-                .forEach(System.out::println);
+                .map(x -> x.getKey())
+                .forEach(System.out::println);*/
 //Szuka połączeń z przesiadką
-        listOfFlights.entrySet().stream()
+        listOfFlights1.entrySet().stream()
+                //te które zawierają w wartościach ZADAR
                 .filter(x -> (x.getValue().contains("Zadar")))
-                .map(x->x.getKey())
-                .filter(x -> (x.contains("Kraków")))
+                .map(x -> x.getValue())
+                .collect(Collectors.toList())
+                .stream()
                 .forEach(System.out::println);
+
+
+                //.filter(x -> (x.getKey().contains("Kraków")))
+                //.map(x -> x.getValue())
+                //.forEach(System.out::println);
 
     }
 

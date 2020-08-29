@@ -5,7 +5,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class FlightsMap {
+public class FlightsMapFillIn {
+
+    Map listOfFlights;
+
+    public FlightsMapFillIn(Map listOfFlights) {
+        this.listOfFlights = listOfFlights;
+    }
 
     public Map<String, List> fillIn() {
 
@@ -27,7 +33,6 @@ public class FlightsMap {
         fromRzeszów.add("Zadar");
 
 
-        Map<String, List> listOfFlights = new HashMap<>();
         listOfFlights.put("Kraków", fromKrakow);
         listOfFlights.put("Wroclaw", fromWroclaw);
         listOfFlights.put("Rzeszów", fromRzeszów);
