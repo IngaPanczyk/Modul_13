@@ -30,7 +30,8 @@ public class FlightFinder {
         listOfFlights.fillIn().entrySet().stream()
                 .filter(x -> (x.getValue().contains(cityTo)))
                 .map(x -> x.getKey())
-                .filter(x -> (x.contains(cityFrom)))
+                ///
+                .filter(x -> (listOfFlights.contains(x)))
                 .forEach(System.out::println);
     }
 }

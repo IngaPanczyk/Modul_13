@@ -32,7 +32,7 @@ public class GlutenFreeShop implements OrderService {
     public boolean process(String client, double quantity, String item, double quantityOrdered) {
         if (quantity > 0) {
             System.out.println(client + " bought " + quantityOrdered + " of " + item);
-            System.out.println("Your " + item +" will arrive in 10 days");
+            System.out.println("Your " + item + " will arrive in 10 days");
             return true;
         } else {
             System.out.println("You do not have enough" + item + " to fulfill your order");

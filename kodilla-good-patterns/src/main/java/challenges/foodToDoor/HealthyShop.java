@@ -31,7 +31,7 @@ public class HealthyShop implements OrderService {
 
     public boolean process(String client, double quantity, String item, double quantityOrdered) {
         if (quantity > 0) {
-            System.out.println("On waarehouse we have" + quantity +". "+ client + " bought only " + quantityOrdered + " of " + item);
+            System.out.println("On waarehouse we have" + quantity + ". " + client + " bought only " + quantityOrdered + " of " + item);
             System.out.println("Your " + item + " will arrive in 5 days");
             return true;
         } else {

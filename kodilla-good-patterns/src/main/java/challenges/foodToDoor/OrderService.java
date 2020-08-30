@@ -1,9 +1,9 @@
 package challenges.foodToDoor;
 
 public interface OrderService {
-    boolean process (String client, double quantity, String item, double quantityOrdered);
+    boolean process(String client, double quantity, String item, double quantityOrdered);
 
-    String getClient ();
+    String getClient();
 
     double getQuantity();
 
