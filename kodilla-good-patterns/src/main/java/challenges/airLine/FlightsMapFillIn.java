@@ -19,6 +19,7 @@ public class FlightsMapFillIn {
         fromKrakow.add("Warszawa");
         fromKrakow.add("Mediolan");
         fromKrakow.add("Rzym");
+        fromKrakow.add("Wrocław");
         List<String> fromWroclaw = new LinkedList<>();
         fromWroclaw.add("Warszawa");
         fromWroclaw.add("Mediolan");
@@ -34,9 +35,17 @@ public class FlightsMapFillIn {
 
 
         listOfFlights.put("Kraków", fromKrakow);
-        listOfFlights.put("Wroclaw", fromWroclaw);
+        listOfFlights.put("Wrocław", fromWroclaw);
         listOfFlights.put("Rzeszów", fromRzeszów);
 
         return listOfFlights;
     }
+
+    public void getListfromKey(String city) {
+
+      listOfFlights.get(city);
+
+
+    }
+
 }
