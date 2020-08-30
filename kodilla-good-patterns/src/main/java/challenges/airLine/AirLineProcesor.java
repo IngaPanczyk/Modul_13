@@ -1,9 +1,7 @@
 package challenges.airLine;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.toList;
 
 public class AirLineProcesor {
     public static void main(String[] args) {
